@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 #%matplotlib inline
 
 data = pd.read_csv('/home/yuta/ros/workspaces/myWorkspace/plotResult.csv', header=None)
-trainData = pd.read_csv('/home/yuta/ros/workspaces/myWorkspace/data/no2calibration.csv', header=None)
+trainData = pd.read_csv('/home/yuta/ros/workspaces/myWorkspace/calibration.csv', header=None)
 
 data_col = data.columns
 t_col = trainData.columns

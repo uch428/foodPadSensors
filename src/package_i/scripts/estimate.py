@@ -12,15 +12,18 @@ array_parameters = parameters.values
 f = open('/home/yuta/ros/workspaces/myWorkspace/EstimatedResult.csv','w')
 writer = csv.writer(f)
 
+ctr = 1
+average = 0
+
 print('---')
 
 def estimate(array_vol):
 	
 	array_result = np.array
 
-	print('~~~~~~')
-	print(array_vol)
-	#print(' * ')
+	#print('~~~~~~')
+	#print(array_vol)   # raw data from sensors
+
 	#print(array_parameters)
 	#print('~~~~~~')
 	array_result = np.dot(array_vol, array_parameters)
@@ -31,9 +34,30 @@ def estimate(array_vol):
 
 def csvWrite(array):
 	global writer
-	print('---')
-	print('Estiamted pressure: ', array)
+	#print('---')
+	#print('Estiamted pressure: ', array)  # Estimated result
 	writer.writerow([array])
+	
+	printAverage(array) # In case you want to know the average of estimated results per a unit
+
+def printAverage(array):
+	global ctr
+	global average
+
+	if ctr > 20:
+		
+		print'AVERAGE per ', ctr-1, ' is :', average/(ctr-1)
+		print'*************'
+		print'*************'
+		average = 0
+		ctr = 0
+		
+	else:
+		average += array[0]
+
+	ctr += 1
+
+	
 
 def callback(data):
 	'''
@@ -47,7 +71,7 @@ def callback(data):
 	rospy.loginfo('adc7: %s', data.adc7)
 	#print(data.adc0)
 	'''
-	print('=======================================')
+	#print('=======================================')
 	
 	array_voltage = np.array([data.adc0, data.adc1, data.adc2, data.adc3, data.adc4, data.adc5, data.adc6, data.adc7])
 	
