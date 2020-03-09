@@ -1,0 +1,8 @@
+prefix=/home/yuta/ros/workspaces/myWorkspace/devel
+
+Name: my_first
+Description: Description of my_first
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

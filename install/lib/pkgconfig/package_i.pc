@@ -1,0 +1,8 @@
+prefix=/home/yuta/ros/workspaces/myWorkspace/install
+
+Name: package_i
+Description: Description of package_i
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime
