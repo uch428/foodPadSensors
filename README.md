@@ -15,7 +15,7 @@ contains CSV/figures results of calibration/estimation that I have done. Explain
 ### csv files directly under root(footPadSensor/)
 These files such as `calibration.csv` are exported everytime after running programs such as `calibration.py`, which will be required afterwars by other programs. e.g. Values of `calibration.csv` will be used in `train.py` to output `parameters.csv`
 
-## Set up to establish all the connection
+## Set-up for establishing all the connection
 ## I. Writnig publisher program on Arduino
 1. Using Arduino IDE, upload the publisher program. Refer the program footPadSensor/MCP3208-5-Adcbase.ino
   * Besides installing rosserial, you would also need to change .msg file to make it 8 channels, based on the original adc.msg from the official ros tutorial which is for 5 channels. Refer to footPadSensor/src/msg/adc1.msg and footPadSensor/Adc.h  
