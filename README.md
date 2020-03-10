@@ -1,9 +1,9 @@
 # foodPadSensors
 
 This is to help you first set up connections between barometric pressure sensors on Arduino, a digital weight scale, and ROS. Having done the set-up, with some programs you can obtain the estimated value of weight from sensor data after calibrating them using a scale. (Applied/estimated pressure should be only one directional for now).
-- Enviroment used to confirm these executions:  Ubuntu 16.04.6 LTS, run on VirtualBox6.1 for Windows 10
-- Interface names e.g. ttyACM0 might be different on each device.
-- All the files and folders under uch428/footPadSensor/ are located under ~/ros/workspace/myWorkspace/ in my environment.
+- The enviroment used to confirm all the exaplanations:  Ubuntu 16.04.6 LTS, run on VirtualBox6.1 for Windows 10
+- Interface names e.g. `ttyACM0` might be different on each device.
+- All the files and folders here under `uch428/footPadSensor/` are located under `~/ros/workspace/myWorkspace/` in my environment.
 - Sorry for very rough explanation and programs!
   
   
