@@ -1,6 +1,7 @@
 # foodPadSensors
 
-Flow and explanation for training and estimating data using ROS  
+Flow and explanation for training and estimating data using ROS
+This is to help you set up connections between barometric pressure sensors on Arduino, a digital weight scale, and ROS. With some programs, you can obtain estimated value of weight from sensor data after calibrating them using a scale. (Applied/estimated pressure should be only one directional for now).
 - Enviroment used to confirm these executions:  Ubuntu 16.04.6 LTS, run on VirtualBox6.1 for Windows 10
 - Interface names e.g. ttyACM0 might be different on each device.
 - All the files and folders under uch428/footPadSensor/ are located under ~/ros/workspace/myWorkspace/ in my environment.
@@ -42,9 +43,31 @@ These files such as `calibration.csv` are exported everytime after running progr
 
 ## Exceuting Calibrating/Estimating programs
 ## I. Calibration
-1. While keep running `roscore` and `rosserial` in other terminals, run calibration.py by
+While keep running `roscore` and `rosserial` in other terminals, run calibration.py by
  > $ rosrun package_i calibration.py  
   - Confirm that available data from sensors and the scale are displayed.
-  - You can now push the foot pad sensor down to the scale. Until you stop the program by Crtl+C, it records Refer to @@@@@@ for some tips on this calibration process.
+  - You can now put a pressure on the foot pad sensor toward the scale. Until you stop the program by Crtl+C, it keeps recording both voltage values from sensors and weight values from  the scale. Recorded results will be saved in footPadSensor/calibration.csv
+  Refer to @@@@@@ for some tips on this calibration process.
+ ## II. Training
+Run `train.py` to output parameters.
+ > $ rosrun package_i train.py
+ - This program simply calculates a regression line with a pseudo-inverse matrix based on data from the previous calibration step. It outputs pinv.csv and parameters.csv. The latter one will be used in a next step.
+ ### III. Estimation
+ Run `estimate.py` to obtain weight value estimated from sensor data. Stop the program with Ctrl+C.
+ > $ rosrun package_i estimate.py
+ - If the previous calibration was successful, this program outputs values which must be close to the actual pressure.
+ ### IV. Record estimation process.
+  Although `estimate.py` is just to display the result, You also can record the result of estimation with `plotResult.py`. 
+  > $ rosrun package_i plotResult.csv
+  - Once it started, the program records values from sensors and the applied pressure on a scale then exports `plotResult.csv`  
+ ### V. Plot results with figures
+  `graphPlot.py` will genrate some figures such as fig_calibration.png, fig_results.csv, and fig_errors.
+  > $ rosrun package_i graphPlot.py
+  - `fig_calibration.png` shows how you calibrated during the process of I. Calibration so that you can know distributions of measured samples for each pressure range.
+  - `fig_results.png` shows simply the process of recording. X-axis shows data index which also you can suppose time.
+  - `fig_error.png` show you how much correcct this estimation process was. A blue line shows ideal case which must be same as weight measured in the actual scale. Blue dots are the esimated value per each weight.
   
+  
+  ## Result and Discussion
+  - I will update this part soon.
 
