@@ -4,7 +4,7 @@ This is to help you first set up connections between barometric pressure sensors
 - The enviroment used to confirm all the exaplanations:  Ubuntu 16.04.6 LTS, run on VirtualBox6.1 for Windows 10
 - Interface names e.g. `ttyACM0` might be different on each device.
 - All the files and folders here under `uch428/footPadSensor/` are located under `~/ros/workspace/myWorkspace/` in my environment.
-- Sorry for very rough explanation and programs!
+- Sorry for very rough explanations and programs!
   
   
 # Overview
