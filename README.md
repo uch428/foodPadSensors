@@ -41,7 +41,7 @@ These files such as `calibration.csv` are exported everytime after running progr
  > $ rosrun package_i scale.py
 
 
-## Exceuting Calibrating/Estimating programs
+## Exceuting Calibration/Estimation/Recording programs
 ## I. Calibration
 While keep running `roscore` and `rosserial` in other terminals, run calibration.py by
  > $ rosrun package_i calibration.py  
