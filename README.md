@@ -48,7 +48,7 @@ While keep running `roscore` and `rosserial` in other terminals, run calibration
  > $ rosrun package_i calibration.py  
   - Confirm that available data from sensors and the scale are displayed.
   - You can now put a pressure on the foot pad sensor toward the scale. Until you stop the program by Crtl+C, it keeps recording both voltage values from sensors and weight values from  the scale. Recorded results will be saved in footPadSensor/calibration.csv
-  Refer to @@@@@@ for some tips on this calibration process.
+  Refer to Discussion step below for some tips on this calibration process.
  ## II. Training
 Run `train.py` to output parameters.
  > $ rosrun package_i train.py
