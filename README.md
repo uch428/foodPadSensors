@@ -5,16 +5,18 @@ This is to help you first set up connections between barometric pressure sensors
 - Interface names e.g. ttyACM0 might be different on each device.
 - All the files and folders under uch428/footPadSensor/ are located under ~/ros/workspace/myWorkspace/ in my environment.
 - Sorry for very rough explanation and programs!
-
-## Overview
+  
+  
+# Overview
 ### src/package_i/scripts/ 
 - contains most main programs such as calibration, training, and estimation programs.
 ### data/
 contains CSV/figures results of calibration/estimation that I have done. Explained in the result discussion part below.
 ### csv files directly under root(footPadSensor/)
 These files such as `calibration.csv` are exported everytime after running programs such as `calibration.py`, which will be required afterwars by other programs. e.g. Values of `calibration.csv` will be used in `train.py` to output `parameters.csv`
-
-## Set-up for establishing all the connections
+  
+  
+# Set-up for establishing all the connections
 ## I. Writnig publisher program on Arduino
 1. Using Arduino IDE, upload the publisher program. Refer the program footPadSensor/MCP3208-5-Adcbase.ino
   * Besides installing rosserial, you would also need to change .msg file to make it 8 channels, based on the original adc.msg from the official ros tutorial which is for 5 channels. Refer to footPadSensor/src/msg/adc1.msg and footPadSensor/Adc.h  
@@ -38,9 +40,9 @@ These files such as `calibration.csv` are exported everytime after running progr
    *In my environment I needed to re-connect the device few times to gestablish connection, probably because of VirtualBox or its driver setting*
 3. Now you should be able to run the program /src/package_i/scripts/scale.py, which simply displays received data from the scale, by
  > $ rosrun package_i scale.py
-
-
-## Exceuting Calibration/Estimation/Recording programs
+  
+  
+# Exceuting Calibration/Estimation/Recording programs
 ## I. Calibration
 While keep running `roscore` and `rosserial` in other terminals, run calibration.py by
  > $ rosrun package_i calibration.py  
@@ -67,6 +69,6 @@ Run `train.py` to output parameters.
   - `fig_error.png` show you how much correcct this estimation process was. A blue line shows ideal case which must be same as weight measured in the actual scale. Blue dots are the esimated value per each weight.
   
   
-  ## Result and Discussion
+# Result and Discussion
   - I will update this part soon.
 
